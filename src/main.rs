@@ -27,8 +27,8 @@ fn rpn(exp: &str) -> f64 {
 }
 
 fn apply2<F>(stack: &mut Vec<f64>, fun: F)
-where
-    F: Fn(f64, f64) -> f64,
+where /* トレイト境界 */
+    F: Fn(f64, f64) -> f64,/*このカンマが!違和感*/
 {
     if let (Some(y), Some(x)) = (stack.pop(), stack.pop()) {
         let z = fun(x, y);
